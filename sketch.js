@@ -65,7 +65,7 @@ function killParticles() {
 }
 
 function randomShape() {
-    choices = ["standard","star","circle"]
+    choices = ["standard","star","circle","spiral"]
     return random(choices)
 }
 
