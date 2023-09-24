@@ -41,6 +41,9 @@ function makeFirework(x,y) {
     case "circle":
         circleFirework(x,y);
         break
+    case "spiral":
+        archimedesSpiral(x,y);
+        break
     }
     // circleFirework(x,y);
 
@@ -140,6 +143,35 @@ function circleFirework(x,y) {
         p.g = g + dG
         p.b = b + dB
 
+        particles.push(p)
+    }
+}
+
+function archimedesSpiral(x,y) {
+    let r = random(65,125)
+    let g = random(40,90)
+    let b = random(65,125)
+    let dColor = random(15,70)
+    // print(dColor)
+    let angle = random(0,2*PI)
+    for (let i = 0; i < 60; i++) {
+        let p = new Particle(x,y)
+        
+        let radius = angle 
+        //r = theta archimedes spiral equation
+        angle += PI/12
+        
+        let vel = radius/17
+        
+        p.velX = vel * cos(angle);
+        p.velY = vel * sin(angle);
+        
+        print(r,g,b)
+        p.r = r + dColor
+        p.g = g + dColor
+        p.b = b + dColor
+        
+        dColor *= -1
         particles.push(p)
     }
 }
