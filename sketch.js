@@ -19,19 +19,19 @@ function setup() {
 // }
 
 function draw() {
-    let opacity = 10
+    let opacity = 25
     background(70,30,45,opacity);
 
-    let transparency = 150
-
     for (let i = 0; i < particles.length; i++) {
-        fill(particles[i].r,particles[i].g,particles[i].b, transparency)
+        fill(particles[i].r,particles[i].g,particles[i].b, particles[i].opacity)
 
         circle(particles[i].x,particles[i].y,8)
         particles[i].x += particles[i].velX;
         particles[i].y += particles[i].velY;
 
         particles[i].velY += 0.012;
+        particles[i].lifespan -= 1;
+        particles[i].opacity -= 1;
     }
 
     killParticles();
@@ -65,7 +65,7 @@ function mousePressed() {
 function killParticles() {
     let aliveParticles = []
     for (let i = 0; i < particles.length; i++) {
-        if (particles[i].y <= height) {
+        if ((particles[i].lifespan > 0) && (particles[i].y <= height)) {
             aliveParticles.push(particles[i])
         }
     }

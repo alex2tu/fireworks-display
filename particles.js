@@ -5,6 +5,9 @@ class Particle {
       
       this.velX = 0;
       this.velY = 0;
+
+      this.lifespan = 120
+      this.opacity = 150
       
       this.r = 0;
       this.g = 0;
