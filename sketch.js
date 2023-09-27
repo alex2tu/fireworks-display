@@ -138,11 +138,12 @@ function circleFirework(x,y) {
         let p = new Particle(x,y)
         let angle = random(0,2*PI)
 
-        let radius = (cos(angle))**2 + (sin(angle))**2
-        let vel = radius
+        // let radius = (cos(angle))**2 + (sin(angle))**2
+        let radius = 1
+        // let vel = radius
 
-        p.velX = cos(angle) * vel;
-        p.velY = sin(angle) * vel;
+        p.velX = cos(angle) * radius;
+        p.velY = sin(angle) * radius;
 
         dR = random(-15,15)
         dG = random(-15,15)
