@@ -2,13 +2,21 @@
 let particles;
 
 function setup() {
-    createCanvas(400, 400);
+    var cnv = createCanvas(windowWidth, windowHeight);
+    cnv.style('display', 'block');
     noStroke(); //no outlines
+
+    // let opacity = 10
+    background(70,30,45);
 
     particles = []
 
     makeFirework(width/2,height/2);
 }
+
+// function windowResized() { //unnecessary for now
+//     resizeCanvas(windowWidth,windowHeight, false);
+// }
 
 function draw() {
     let opacity = 10
@@ -23,7 +31,7 @@ function draw() {
         particles[i].x += particles[i].velX;
         particles[i].y += particles[i].velY;
 
-        particles[i].velY += 0.01;
+        particles[i].velY += 0.012;
     }
 
     killParticles();
