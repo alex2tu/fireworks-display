@@ -2,8 +2,7 @@
 let particles;
 
 function setup() {
-    var cnv = createCanvas(windowWidth, windowHeight);
-    cnv.style('display', 'block');
+    createCanvas(windowWidth, windowHeight);
     noStroke(); //no outlines
 
     // let opacity = 10
@@ -37,6 +36,10 @@ function draw() {
     killParticles();
 }
 
+function drawButton() {
+    fill
+}
+
 function makeFirework(x,y) {
     shape = randomShape();
     switch(shape) {
@@ -52,8 +55,10 @@ function makeFirework(x,y) {
     case "spiral":
         archimedesSpiral(x,y);
         break
+    case "rose":
+        roseCurve(x,y)
+        break
     }
-    // circleFirework(x,y);
 
 
 }
@@ -73,7 +78,7 @@ function killParticles() {
 }
 
 function randomShape() {
-    choices = ["standard","star","circle","spiral"]
+    choices = ["standard","star","circle","spiral","rose"]
     return random(choices)
 }
 
@@ -181,6 +186,39 @@ function archimedesSpiral(x,y) {
         p.b = b + dColor
         
         dColor *= -1
+        particles.push(p)
+    }
+}
+
+function roseCurve(x,y) {
+    r = random(5,250)
+    g = random(5,250)
+    b = random(5,250)
+    let coefficient = int(random(2,7))
+    for (let i = 0; i < 80; i++) {
+        let p = new Particle(x,y)
+        let angle = random(0,2*PI)
+        choices = ["sin","cos"]
+        let radius = 0;
+
+        switch(random(choices)) {
+            case "sin":
+                radius = (9/7)*sin(coefficient*angle)
+            case "cos":
+                radius = (9/7)*sin(coefficient*angle)
+        }
+        //r = a * cos(n*theta) or a* sin(n*theta)
+        
+        let vel = radius
+        
+        p.velX = vel * cos(angle);
+        p.velY = vel * sin(angle);
+        
+        print(r,g,b)
+        p.r = r
+        p.g = g
+        p.b = b
+        
         particles.push(p)
     }
 }
