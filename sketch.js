@@ -36,9 +36,9 @@ function draw() {
     killParticles();
 }
 
-function drawButton() {
-    fill
-}
+// function drawButton() {
+//     fill
+// }
 
 function makeFirework(x,y) {
     shape = randomShape();
