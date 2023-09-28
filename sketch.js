@@ -1,5 +1,9 @@
-// let particle;
 let particles;
+let creditText, githubLink;
+
+// function preload() { 
+    //in case needed to add fonts
+// }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -9,6 +13,9 @@ function setup() {
     background(70,30,45);
 
     particles = []
+
+    creditText = 'Built using p5.js by @alex2tu | '
+    githubLink = createA('https://github.com/alex2tu/fireworks-display', 'GitHub')
 
     makeFirework(width/2,height/2);
 }
@@ -20,6 +27,8 @@ function setup() {
 function draw() {
     let opacity = 25
     background(70,30,45,opacity);
+
+    drawText();
 
     for (let i = 0; i < particles.length; i++) {
         fill(particles[i].r,particles[i].g,particles[i].b, particles[i].opacity)
@@ -39,6 +48,14 @@ function draw() {
 // function drawButton() {
 //     fill
 // }
+
+function drawText() {
+    textSize(14);
+    fill(0);
+    textFont('Verdana')
+    githubLink.position(227,windowHeight-24);
+    text(creditText, 5, windowHeight-9);
+}
 
 function makeFirework(x,y) {
     shape = randomShape();
