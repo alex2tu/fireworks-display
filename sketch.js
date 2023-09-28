@@ -180,7 +180,7 @@ function archimedesSpiral(x,y) {
         p.velX = vel * cos(angle);
         p.velY = vel * sin(angle);
         
-        print(r,g,b)
+        // print(r,g,b)
         p.r = r + dColor
         p.g = g + dColor
         p.b = b + dColor
@@ -195,7 +195,9 @@ function roseCurve(x,y) {
     g = random(5,250)
     b = random(5,250)
     let coefficient = int(random(2,7))
-    for (let i = 0; i < 80; i++) {
+    // print(coefficient)
+    let extraParticles = coefficient*17
+    for (let i = 0; i < 60+extraParticles; i++) {
         let p = new Particle(x,y)
         let angle = random(0,2*PI)
         choices = ["sin","cos"]
@@ -214,7 +216,7 @@ function roseCurve(x,y) {
         p.velX = vel * cos(angle);
         p.velY = vel * sin(angle);
         
-        print(r,g,b)
+        // print(r,g,b)
         p.r = r
         p.g = g
         p.b = b
