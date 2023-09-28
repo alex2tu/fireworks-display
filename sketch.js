@@ -206,8 +206,10 @@ function roseCurve(x,y) {
         switch(random(choices)) {
             case "sin":
                 radius = (9/7)*sin(coefficient*angle)
+                break
             case "cos":
-                radius = (9/7)*sin(coefficient*angle)
+                radius = (9/7)*cos(coefficient*angle)
+                break
         }
         //r = a * cos(n*theta) or a* sin(n*theta)
         
