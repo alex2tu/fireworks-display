@@ -14,8 +14,8 @@ function setup() {
 
     particles = []
 
-    creditText = 'Built using p5.js by @alex2tu | '
-    githubLink = createA('https://github.com/alex2tu/fireworks-display', 'GitHub')
+    creditText = 'Built using p5.js by @alex2tu'
+    // githubLink = createA('https://github.com/alex2tu/fireworks-display', 'GitHub')
 
     makeFirework(width/2,height/2);
 }
@@ -53,7 +53,7 @@ function drawText() {
     textSize(14);
     fill(0);
     textFont('Verdana')
-    githubLink.position(227,windowHeight-24);
+    // githubLink.position(227,windowHeight-24);
     text(creditText, 5, windowHeight-9);
 }
 
