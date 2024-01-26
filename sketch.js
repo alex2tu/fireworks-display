@@ -53,6 +53,7 @@ function drawText() {
     textSize(14);
     fill(0);
     textFont('Verdana')
+    fill('white')
     // githubLink.position(227,windowHeight-24);
     text(creditText, 5, windowHeight-9);
 }
